@@ -58,16 +58,25 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+`@Controller()` and `@Module()` are class decorators, where as `@Get()` and `@Post()` are method decorators and `@Body()` and `@Param()` are argument decorators.
 
-## Stay in touch
+## Setting up automatic validation
+1. Tell nest to use global validation.
+2. Create a class that describes the different properties that the request body should have. It is known as Data Transfer object (DTO).
+3. Add validation rules to the class.
+4. Apply that class to the request handler.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+## Validation Pipe
+- Use class transform to turn the body into an instance of the DTO class.
+- Use class validator to validate the instance.
+- If there are any validation errors, respond immediately, otherwise provide body to request handler.
 
-Nest is [MIT licensed](LICENSE).
+
+## How type info is preserved?
+With the help of these two configurations in tsconfig.json file
+```
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+```
