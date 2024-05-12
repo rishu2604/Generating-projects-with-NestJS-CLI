@@ -80,3 +80,17 @@ With the help of these two configurations in tsconfig.json file
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
 ```
+
+## Services
+- It's a class.
+- It is a place to put any business logic.
+- Uses one or more repositories to find or store data.
+- We create a service anytime we want to write out some kind of business logic. So something to run some kind of calculation or stuff like that. 
+- We also make use of services anytime we want to fetch data from a repository.
+- Controller interacts with the services.
+
+## Repositories
+- It's a class.
+- It is a place to put storage-related logic. So if we need to directly interact with the database or if we need to write information into a file
+- Usually ends up being a TypeORM entity, a mongoose schema or similar.
+
